@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz del Consumo - Lipovetsky</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      color: #222;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.15);
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    .intro {
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .question {
+      margin-bottom: 25px;
+      padding: 15px;
+      background: #fafafa;
+      border-radius: 10px;
+    }
+
+    label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    button {
+      display: block;
+      margin: 30px auto 0;
+      padding: 12px 25px;
+      border: none;
+      background: #222;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #444;
+    }
+
+    #resultado {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      background: #e8f0ff;
+      display: none;
+      line-height: 1.6;
+    }
+
+    .cita {
+      font-style: italic;
+      background: #fff;
+      padding: 12px;
+      border-left: 4px solid #222;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>¿Qué lógica de consumo predomina en vos?</h1>
+
+    <div class="intro">
+      <p>
+        Este juego interactivo está inspirado en las tres fases del consumo planteadas por
+        Gilles Lipovetsky en <strong>La felicidad paradójica</strong>.
+      </p>
+
+      <p>
+        A través de tus respuestas, el quiz no busca decir “quién sos”, sino mostrar
+        qué forma de consumo aparece con más fuerza en tus elecciones: necesidad,
+        bienestar o consumo emocional.
+      </p>
+    </div>
+
+    <form id="quizForm">
+
+      <div class="question">
+        <p>1. Cuando comprás algo, lo más importante es:</p>
+        <label><input type="radio" name="q1" value="fase3"> Que me guste y me genere algo</label>
+        <label><input type="radio" name="q1" value="fase2"> Que sea útil en mi vida diaria</label>
+        <label><input type="radio" name="q1" value="fase1"> Que cubra una necesidad concreta</label>
+      </div>
+
+      <div class="question">
+        <p>2. Si ves un producto nuevo, lo comprás porque:</p>
+        <label><input type="radio" name="q2" value="fase2"> Puede mejorar mi día a día</label>
+        <label><input type="radio" name="q2" value="fase3"> Me llama la atención o lo deseo</label>
+        <label><input type="radio" name="q2" value="fase1"> Realmente lo necesito</label>
+      </div>
+
+      <div class="question">
+        <p>3. ¿Qué tan importante es la marca para vos?</p>
+        <label><input type="radio" name="q3" value="fase3"> Es clave, me identifica</label>
+        <label><input type="radio" name="q3" value="fase1"> No le doy mucha importancia</label>
+        <label><input type="radio" name="q3" value="fase2"> Importa si asegura calidad</label>
+      </div>
+
+      <div class="question">
+        <p>4. Cuando tenés varias opciones para elegir:</p>
+        <label><input type="radio" name="q4" value="fase2"> Comparo calidad y precio</label>
+        <label><input type="radio" name="q4" value="fase1"> Elijo la más simple y funcional</label>
+        <label><input type="radio" name="q4" value="fase3"> Voy por la que más me atrae</label>
+      </div>
+
+      <div class="question">
+        <p>5. ¿Cómo te sentís después de comprar algo?</p>
+        <label><input type="radio" name="q5" value="fase2"> Satisfecho, fue una buena elección</label>
+        <label><input type="radio" name="q5" value="fase1"> Tranquilo, resolví algo necesario</label>
+        <label><input type="radio" name="q5" value="fase3"> Entusiasmado, aunque a veces quiero más</label>
+      </div>
+
+      <div class="question">
+        <p>6. ¿Comprás cosas para mejorar tu estado de ánimo?</p>
+        <label><input type="radio" name="q6" value="fase3"> Sí, bastante seguido</label>
+        <label><input type="radio" name="q6" value="fase1"> No, solo si lo necesito</label>
+        <label><input type="radio" name="q6" value="fase2"> A veces</label>
+      </div>
+
+      <div class="question">
+        <p>7. ¿Qué rol tiene el consumo en tu vida?</p>
+        <label><input type="radio" name="q7" value="fase3"> Es una forma de expresarme</label>
+        <label><input type="radio" name="q7" value="fase1"> Es algo necesario para vivir</label>
+        <label><input type="radio" name="q7" value="fase2"> Me ayuda a estar cómodo</label>
+      </div>
+
+      <div class="question">
+        <p>8. Cuando ves publicidad:</p>
+        <label><input type="radio" name="q8" value="fase3"> Me genera ganas de comprar</label>
+        <label><input type="radio" name="q8" value="fase1"> No me influye demasiado</label>
+        <label><input type="radio" name="q8" value="fase2"> Me ayuda a decidir</label>
+      </div>
+
+      <div class="question">
+        <p>9. ¿Cómo elegís ropa o tecnología?</p>
+        <label><input type="radio" name="q9" value="fase3"> Por estilo y lo que transmite</label>
+        <label><input type="radio" name="q9" value="fase1"> Por utilidad</label>
+        <label><input type="radio" name="q9" value="fase2"> Por calidad y duración</label>
+      </div>
+
+      <div class="question">
+        <p>10. ¿Te pasa que querés algo nuevo aunque ya tengas algo similar?</p>
+        <label><input type="radio" name="q10" value="fase3"> Sí, me pasa seguido</label>
+        <label><input type="radio" name="q10" value="fase1"> No</label>
+        <label><input type="radio" name="q10" value="fase2"> A veces</label>
+      </div>
+
+      <button type="button" onclick="calcularResultado()">Ver resultado</button>
+    </form>
+
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    function calcularResultado() {
+      let puntajes = {
+        fase1: 0,
+        fase2: 0,
+        fase3: 0
+      };
+  
+      for (let i = 1; i <= 10; i++) {
+        let respuesta = document.querySelector('input[name="q' + i + '"]:checked');
+  
+        if (!respuesta) {
+          alert("Respondé todas las preguntas antes de ver el resultado.");
+          return;
+        }
+  
+        puntajes[respuesta.value]++;
+      }
+  
+      let faseGanadora = "fase1";
+  
+      if (puntajes.fase2 > puntajes[faseGanadora]) {
+        faseGanadora = "fase2";
+      }
+  
+      if (puntajes.fase3 > puntajes[faseGanadora]) {
+        faseGanadora = "fase3";
+      }
+  
+      let porcentaje = Math.round((puntajes[faseGanadora] / 10) * 100);
+  
+      let quizForm = document.getElementById("quizForm");
+      let resultado = document.getElementById("resultado");
+  
+      quizForm.style.display = "none";
+      resultado.style.display = "block";
+  
+      if (faseGanadora === "fase1") {
+        resultado.innerHTML = `
+          <h2>Resultado: Lógica de la Fase 1</h2>
+          <h3>Coincidencia: ${porcentaje}%</h3>
+  
+          <p>
+            Tus respuestas se aproximan principalmente a la primera fase del consumo.
+            Esta lógica está relacionada con una forma de consumo más básica, funcional
+            y ligada a la necesidad concreta.
+          </p>
+  
+          <p>
+            En esta etapa, el consumo todavía no aparece tan vinculado a la identidad
+            personal o a las emociones, sino al acceso a productos útiles dentro de un
+            mercado que comienza a expandirse. Lo importante es que el objeto cumpla una
+            función y resuelva una necesidad.
+          </p>
+  
+          <p>
+            En términos del juego, tus elecciones muestran que priorizás la utilidad,
+            la simpleza y la resolución práctica por encima del deseo, la marca o la
+            experiencia emocional.
+          </p>
+  
+          <div class="cita">
+            “Fase I que se instituye, en lugar de los pequeños mercados locales,
+            los grandes mercados nacionales...” — Lipovetsky
+          </div>
+  
+          <button onclick="volverARealizarQuiz()">Volver a realizar Quiz</button>
+        `;
+      }
+  
+      else if (faseGanadora === "fase2") {
+        resultado.innerHTML = `
+          <h2>Resultado: Lógica de la Fase 2</h2>
+          <h3>Coincidencia: ${porcentaje}%</h3>
+  
+          <p>
+            Tus respuestas se aproximan principalmente a la segunda fase del consumo,
+            asociada a la sociedad de consumo de masas.
+          </p>
+  
+          <p>
+            En esta etapa, el consumo se relaciona con el bienestar, la comodidad y la
+            mejora de la vida cotidiana. Los productos dejan de ser únicamente objetos
+            necesarios y pasan a formar parte de un ideal de progreso material.
+          </p>
+  
+          <p>
+            En términos del juego, tus elecciones muestran que valorás la calidad,
+            la duración, el confort y la utilidad práctica de los productos. No consumís
+            solamente por necesidad, pero tampoco principalmente por deseo emocional:
+            buscás mejorar tu calidad de vida.
+          </p>
+  
+          <div class="cita">
+            “La fase II se presenta como el modelo puro de la sociedad de consumo de masas.”
+            — Lipovetsky
+          </div>
+  
+          <button onclick="volverARealizarQuiz()">Volver a realizar Quiz</button>
+        `;
+      }
+  
+      else {
+        resultado.innerHTML = `
+          <h2>Resultado: Lógica de la Fase 3</h2>
+          <h3>Coincidencia: ${porcentaje}%</h3>
+  
+          <p>
+            Tus respuestas se aproximan principalmente a la tercera fase del consumo:
+            el hiperconsumo.
+          </p>
+  
+          <p>
+            En esta etapa, el consumo ya no se explica solo por la necesidad ni por el
+            bienestar material. Los productos también se relacionan con emociones,
+            deseos, experiencias, gustos personales e identidad.
+          </p>
+  
+          <p>
+            En términos del juego, tus elecciones muestran que consumís muchas veces por
+            lo que un producto te hace sentir o por lo que representa para vos. Esta lógica
+            refleja una forma de consumo más subjetiva, individualizada y emocional.
+          </p>
+  
+          <div class="cita">
+            “El consumo emocional... busca sensaciones variadas y mayor bienestar sensible.”
+            — Lipovetsky
+          </div>
+  
+          <button onclick="volverARealizarQuiz()">Volver a realizar Quiz</button>
+        `;
+      }
+  
+      resultado.scrollIntoView({ behavior: "smooth" });
+    }
+  
+    function volverARealizarQuiz() {
+      document.getElementById("quizForm").reset();
+      document.getElementById("quizForm").style.display = "block";
+      document.getElementById("resultado").style.display = "none";
+      document.getElementById("resultado").innerHTML = "";
+  
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+  </script>
+
+</body>
+</html>
